@@ -1,0 +1,67 @@
+{
+  "name": "json-stringify-compact",
+  "version": "0.1.0",
+  "description": "JSON serialization with per-path decimal precision control using glob-style path patterns.",
+  "keywords": [
+    "json",
+    "stringify",
+    "decimal",
+    "precision",
+    "format",
+    "serialization"
+  ],
+  "author": {
+    "name": "Hoya Kim",
+    "email": "wbstory@storymate.net"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/@webstory/json-stringify-compact.git"
+  },
+  "bugs": {
+    "url": "https://github.com/@webstory/json-stringify-compact/issues"
+  },
+  "homepage": "https://github.com/@webstory/json-stringify-compact#readme",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.0",
+    "@vitest/coverage-v8": "^3.2.0",
+    "@types/bun": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true
+}
