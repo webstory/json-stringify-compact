@@ -1,4 +1,9 @@
-/** Manual test for the AKView annotation schema v5 */
+/**
+ * Real-world use case: AKView annotation schema v5
+ *
+ * Rounds timeRange and bbox timestamps to 1 decimal place,
+ * and bbox points to 4 decimal places.
+ */
 
 import { stringifyCompact } from '@webstory/json-stringify-compact';
 
