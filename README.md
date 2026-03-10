@@ -16,19 +16,19 @@
 
 ```bash
 # npm
-npm install {{package-name}}
+npm install @webstory/json-stringify-compact
 
 # pnpm
-pnpm add {{package-name}}
+pnpm add @webstory/json-stringify-compact
 
 # bun
-bun add {{package-name}}
+bun add @webstory/json-stringify-compact
 ```
 
 ## Usage
 
 ```ts
-import { stringifyCompact } from '{{package-name}}';
+import { stringifyCompact } from '@webstory/json-stringify-compact';
 ```
 
 ### Basic example

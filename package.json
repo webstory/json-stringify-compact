@@ -1,5 +1,5 @@
 {
-  "name": "json-stringify-compact",
+  "name": "@webstory/json-stringify-compact",
   "version": "0.1.0",
   "description": "JSON serialization with per-path decimal precision control using glob-style path patterns.",
   "keywords": [
@@ -17,12 +17,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/@webstory/json-stringify-compact.git"
+    "url": "https://github.com/webstory/json-stringify-compact.git"
   },
   "bugs": {
-    "url": "https://github.com/@webstory/json-stringify-compact/issues"
+    "url": "https://github.com/webstory/json-stringify-compact/issues"
   },
-  "homepage": "https://github.com/@webstory/json-stringify-compact#readme",
+  "homepage": "https://github.com/webstory/json-stringify-compact#readme",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -63,5 +63,7 @@
   "engines": {
     "node": ">=18"
   },
-  "private": true
+  "publishConfig": {
+    "access": "public"
+  }
 }
