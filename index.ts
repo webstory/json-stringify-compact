@@ -71,25 +71,6 @@ function compileRules(rules: FormatRule[]): CompiledRule[] {
   return rules.map(r => ({ regex: patternToRegex(r.path), decimals: r.decimals }));
 }
 
-/**
- * Resolves the decimal precision to apply for a given path.
- *
- * Rules are evaluated last-to-first so that later (more specific) rules win.
- *
- * @param path           - The dot-notation path of the current value.
- * @param compiled       - Pre-compiled rules to match against.
- * @param defaultDecimals - Fallback precision when no rule matches.
- * @returns The number of decimal places, or `undefined` if no rule matches and no default is set.
- */
-function resolveDecimals(
-  path: string,
-  compiled: CompiledRule[],
-  defaultDecimals?: number
-): number | undefined {
-  const rule = compiled.findLast(r => r.regex.test(path));
-  if (rule) return rule.decimals;
-  return defaultDecimals;
-}
 
 /**
  * Recursively serializes a value to a JSON string, applying decimal formatting rules
@@ -118,8 +99,10 @@ function serialize(
 
   if (typeof value === 'number') {
     if (!isFinite(value)) return 'null'; // NaN / Infinity → null, matching JSON.stringify behaviour
-    const decimals = resolveDecimals(path, compiled, defaultDecimals);
-    return decimals !== undefined ? value.toFixed(decimals) : String(value);
+    const matchedRule = compiled.findLast(r => r.regex.test(path));
+    if (matchedRule) return value.toFixed(matchedRule.decimals);
+    if (Number.isInteger(value)) return String(value); // integers stay integers unless a rule forces otherwise
+    return defaultDecimals !== undefined ? value.toFixed(defaultDecimals) : String(value);
   }
 
   if (Array.isArray(value)) {
