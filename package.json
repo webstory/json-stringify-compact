@@ -1,6 +1,6 @@
 {
   "name": "@webstory/json-stringify-compact",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "JSON serialization with per-path decimal precision control using glob-style path patterns.",
   "keywords": [
     "json",
